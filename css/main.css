@@ -333,6 +333,48 @@ body {
   background-position: bottom;
 }
 
+:root {
+  --top__top-title-color: #FFFFFF;
+  --top__hr-color: rgba(255, 255, 255, 0.5);
+  --top__top-text-color: #FFFFFF;
+  --top__select-color: #FFFFFF;
+  --top__select-border: #FFFFFF;
+  --center-left__title-color: #FFFFFF;
+  --center-left__text-color: #FFC700;
+  --center-right__title-color: #FFC700;
+  --center-right__text-color: #FFFFFF;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --card-title: #FFC700;
+  --card-time: #FFFFFF;
+  --dark-mode: #FFFFFF;
+  --moon: #000000;
+}
+
+.active {
+  --top__top-title-color: #1746A2;
+  --top__hr-color: rgba(7, 5, 5, 0.5);
+  --top__top-text-color: #5F9DF7;
+  --top__select-color: #FFFFFF;
+  --top__select-border: #1746A2;
+  --center-left__title-color: #5F9DF7;
+  --center-left__text-color: #FF731D;
+  --center-right__title-color: #FF731D;
+  --center-right__text-color: #1746A2;
+  --card-bg: rgba(7, 6, 6, 0.3);
+  --card-title: #FF731D;
+  --card-time: #1746A2;
+  --dark-mode: #0a0909;
+  --moon: #b6941a;
+  background: #FFF7E9;
+}
+.active #select {
+  background-color: #5F9DF7;
+}
+.active .week-name {
+  background-color: #747a88;
+  color: #FFF7E9;
+}
+
 img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -368,7 +410,7 @@ img {
   font-weight: 700;
   font-size: 32px;
   line-height: 46px;
-  color: #FFFFFF;
+  color: var(--top__top-title-color);
 }
 
 .top__hr {
@@ -376,12 +418,12 @@ img {
   height: 2px;
   margin: 20px 0 30px;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--top__hr-color);
 }
 
 .top__inner {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 80px;
   margin: 0 auto;
 }
@@ -390,7 +432,7 @@ img {
   font-weight: 700;
   font-size: 20px;
   line-height: 29px;
-  color: #FFFFFF;
+  color: var(--top__top-text-color);
 }
 
 #select {
@@ -400,8 +442,8 @@ img {
   font-weight: 700;
   font-size: 20px;
   line-height: 29px;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  color: var(--top__select-color);
+  border: 1px solid var(--top__select-border);
   border-radius: 50px;
   background-color: transparent;
   -webkit-appearance: none;
@@ -410,8 +452,13 @@ img {
   background-image: url("../../images/arrow-down.svg"), url("../../images/select_circle.svg");
   background-repeat: no-repeat;
   background-size: 24px, 38px;
-  background-position-x: 161px, 154px;
-  background-position-y: 12px, 5px;
+  background-position-x: 161px, 153px;
+  background-position-y: 12px, 4px;
+}
+
+.week-name {
+  background-color: grey;
+  color: white;
 }
 
 #select * {
@@ -421,6 +468,28 @@ img {
   line-height: 29px;
   color: #13003C;
   background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--dark-mode);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.dark-mode svg {
+  width: 30px;
+  height: 30px;
+}
+
+.dark-mode svg path {
+  fill: var(--moon);
 }
 
 .center-wrapper {
@@ -441,7 +510,7 @@ img {
   font-weight: 700;
   font-size: 24px;
   line-height: 35px;
-  color: #FFFFFF;
+  color: var(--center-left__title-color);
 }
 
 .center-left__text {
@@ -449,7 +518,7 @@ img {
   font-weight: 700;
   font-size: 24px;
   line-height: 35px;
-  color: #FFC700;
+  color: var(--center-left__text-color);
 }
 
 .center-right {
@@ -462,7 +531,7 @@ img {
   font-weight: 700;
   font-size: 24px;
   line-height: 35px;
-  color: #FFC700;
+  color: var(--center-right__title-color);
 }
 
 .center-right__text {
@@ -470,7 +539,7 @@ img {
   font-weight: 700;
   font-size: 24px;
   line-height: 35px;
-  color: #FFFFFF;
+  color: var(--center-right__text-color);
 }
 
 .weeks {
@@ -497,9 +566,8 @@ img {
 .card {
   width: 15%;
   padding: 20px 5px 18px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid #000000;
-  box-shadow: 0px 10px 100px 10px rgba(255, 255, 255, 0.2);
+  background: var(--card-bg);
+  box-shadow: 0px 10px 100px 10px var(--card-bg);
   border-radius: 25px;
   border: none;
   text-align: center;
@@ -510,7 +578,7 @@ img {
   font-weight: 700;
   font-size: 32px;
   line-height: 46px;
-  color: #FFC700;
+  color: var(--card-title);
 }
 
 .card img {
@@ -521,7 +589,7 @@ img {
 }
 
 .card img:hover {
-  transform: scale(1.2);
+  transform: scale(0.9);
 }
 
 .card:first-child img {
@@ -532,5 +600,5 @@ img {
   font-weight: 700;
   font-size: 48px;
   line-height: 69px;
-  color: #FFFFFF;
+  color: var(--card-time);
 }/*# sourceMappingURL=main.css.map */

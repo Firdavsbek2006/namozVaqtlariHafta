@@ -22,9 +22,8 @@
 .card{
     width: 15%;
     padding: 20px 5px 18px;
-    background: rgba(255, 255, 255, .2);
-    border: 1px solid #000000;
-    box-shadow: 0px 10px 100px 10px rgba(255, 255, 255, .2);
+    background: var(--card-bg);
+    box-shadow: 0px 10px 100px 10px var(--card-bg);
     border-radius: 25px;
     border: none;
     text-align: center;
@@ -35,7 +34,7 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 46px;
-    color: #FFC700;
+    color: var(--card-title);
 }
 
 .card img{
@@ -45,7 +44,7 @@
 }
 
 .card img:hover{
-    transform: scale(1.2);
+    transform: scale(.9);
 }
 
 .card:first-child img{
@@ -56,5 +55,5 @@
     font-weight: 700;
     font-size: 48px;
     line-height: 69px;
-    color: #FFFFFF;
+    color: var(--card-time);
 }

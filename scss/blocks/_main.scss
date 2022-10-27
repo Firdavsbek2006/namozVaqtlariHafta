@@ -16,7 +16,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 35px;
-    color: #FFFFFF;
+    color: var(--center-left__title-color);
 }
 
 .center-left__text{
@@ -24,7 +24,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 35px;
-    color: #FFC700;
+    color: var(--center-left__text-color);
 }
 
 .center-right{
@@ -37,7 +37,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 35px;
-    color: #FFC700;
+    color: var(--center-right__title-color);
 }
 
 .center-right__text{
@@ -45,5 +45,5 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 35px;
-    color: #FFFFFF;
+    color: var(--center-right__text-color);
 }

@@ -11,7 +11,7 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 46px;
-    color: #FFFFFF;
+    color: var(--top__top-title-color);
 }
 
 .top__hr{
@@ -19,12 +19,12 @@
     height: 2px;
     margin: 20px 0 30px;
     display: inline-block;
-    background-color:rgba(255, 255, 255, 0.5);
+    background-color: var(--top__hr-color);
 }
 
 .top__inner{
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 80px;
     margin: 0 auto;
 }
@@ -33,7 +33,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 29px;
-    color: #FFFFFF;
+    color: var(--top__top-text-color);
 }
 
 #select{
@@ -43,16 +43,21 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 29px;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    color: var(--top__select-color);
+    border: 1px solid var(--top__select-border);
     border-radius: 50px;
     background-color: transparent;
     appearance: none;
     background-image: url("../../images/arrow-down.svg"), url("../../images/select_circle.svg");
     background-repeat: no-repeat;
     background-size: 24px, 38px;
-    background-position-x: 161px, 154px;
-    background-position-y: 12px, 5px;
+    background-position-x: 161px, 153px;
+    background-position-y: 12px, 4px;
+}
+
+.week-name{
+    background-color: grey;
+    color: white;
 }
 
 #select * {
@@ -67,3 +72,25 @@
 // #select *:hover{
 //     background: #FFFFFF;
 // }
+
+.dark-mode{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--dark-mode);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.dark-mode svg{
+    width: 30px;
+    height: 30px;
+}
+
+.dark-mode svg path{
+    fill: var(--moon);
+}

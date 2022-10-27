@@ -11,17 +11,25 @@ async function dynamicOption(){
   });
 }
 dynamicOption();
+
 //-----------END DYNAMIC OPTION-----------//
 
 //-----------START CHANGE MINTAQA WHILE RENDER OPTION-----------//
+
 function renderOptions(){
-  regions.forEach(()=>{
-    $("#select").addEventListener("change", (e)=>{
-      $(".mintaqa").innerHTML = e.target.value;
-    })
-  });
+  $("#select").addEventListener("change", (e)=>{
+    localStorage.setItem("mintaqa", e.target.value);
+    $(".mintaqa").innerHTML = e.target.value;
+  })
 };
 renderOptions()
+
+
+let mintaqa = localStorage.getItem("mintaqa");
+$(".mintaqa").innerHTML = mintaqa;
+$("#select").value = "toshkent".innerHTML = mintaqa;
+
+
 //-----------END CHANGE MINTAQA WHILE RENDER OPTION-----------//
 
 //-----------START RENDER CARDS-----------//
@@ -80,6 +88,59 @@ async function renderData(){
 renderData();
 //-----------END RENDER CARDS-----------//
 
+async function renderTime(){
+  const API_URL = "https://islomapi.uz/api/present/";
+
+  fetch(API_URL + "week?region=" + mintaqa)
+      .then((res) => res.json())
+      .then((data) => {
+        $(".weeks").innerHTML = "";
+        for(let i = 0; i < data.length; i++){
+          let weekDay = document.createElement('div')
+          weekDay.setAttribute("class", "weeks");
+          weekDay.innerHTML = `
+          <div class="week-name text-center p-4">${data[i].weekday}</div>
+          <div class="main-wrapper">
+              <div class="card">
+                  <h3 class="card__title">Tong</h3>
+                  <img src="./images/tong.svg" alt="Tong" width="100%">
+                  <time class="card__time tong">${data[i].times.tong_saharlik}</time>
+              </div>
+              <div class="card">
+                  <h3 class="card__title">Quyosh</h3>
+                  <img src="./images/quyosh.svg" alt="Quyosh" width="100%">
+                  <time class="card__time quyosh">${data[i].times.quyosh}</time>
+              </div>
+              <div class="card">
+                  <h3 class="card__title">Peshin</h3>
+                  <img src="./images/peshin.svg" alt="Peshin" width="100%">
+                  <time class="card__time peshin">${data[i].times.peshin}</time>
+              </div>
+              <div class="card">
+                  <h3 class="card__title">Asr</h3>
+                  <img src="./images/asr.svg" alt="Asr" width="100%">
+                  <time class="card__time asr">${data[i].times.asr}</time>
+              </div>
+              <div class="card">
+                  <h3 class="card__title">Shom</h3>
+                  <img src="./images/shom.svg" alt="shom" width="100%">
+                  <time class="card__time shom">${data[i].times.shom_iftor}</time>
+              </div>
+              <div class="card">
+                  <h3 class="card__title">Xufton</h3>
+                  <img src="./images/xufton.svg" alt="Xufton" width="100%">
+                  <time class="card__time xufton">${data[i].times.hufton}</time>
+              </div>
+          </div>
+          `;
+          $(".weeks").appendChild(weekDay);
+        }
+        
+      });
+}
+renderTime();
+
+
 //-----------START RENDER TIME-----------//
 async function renderDate(){
   const data = new Date();
@@ -96,3 +157,27 @@ async function renderDate(){
 } 
 renderDate();
 //-----------END RENDER TIME-----------//
+
+const elBody = document.querySelector("body");
+const elMode = document.querySelector(".dark-mode");
+
+elMode.addEventListener("click", ()=>{
+  // elBody.classList.toggle("active");
+  if(elBody.classList.toggle("active")){
+    localStorage.setItem("mode", "light");
+    // elBody.classList.add("active");
+  }else{
+    localStorage.setItem("mode", "dark");
+    // elBody.classList.remove("active");
+  }
+
+  const mode = localStorage.getItem("mode");
+
+  if(mode === "light"){
+    elBody.classList.add("active");
+  }else if(mode === "dark"){
+    elBody.classList.remove("active");
+  }
+})
+
+
